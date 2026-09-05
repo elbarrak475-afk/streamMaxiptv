@@ -5,26 +5,42 @@ document.addEventListener('DOMContentLoaded', () => {
   const mainNav = document.getElementById('main-nav');
 
   if (navToggle && mainNav) {
+    const closeMenu = () => {
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Open navigation menu');
+      mainNav.classList.remove('open');
+    };
+
     navToggle.addEventListener('click', () => {
       const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', String(!expanded));
-      mainNav.classList.toggle('open');
+      if (expanded) {
+        closeMenu();
+        return;
+      }
+
+      navToggle.setAttribute('aria-expanded', 'true');
+      navToggle.setAttribute('aria-label', 'Close navigation menu');
+      mainNav.classList.add('open');
     });
 
     // Close menu when clicking outside or clicking a navigation link
     document.addEventListener('click', (e) => {
       if (!navToggle.contains(e.target) && !mainNav.contains(e.target) && mainNav.classList.contains('open')) {
-        navToggle.setAttribute('aria-expanded', 'false');
-        mainNav.classList.remove('open');
+        closeMenu();
       }
     });
 
     mainNav.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        navToggle.setAttribute('aria-expanded', 'false');
-        mainNav.classList.remove('open');
-      });
+      link.addEventListener('click', closeMenu);
     });
+
+    window.addEventListener('scroll', () => {
+      if (mainNav.classList.contains('open')) closeMenu();
+    }, { passive: true });
+
+    if (navToggle.getAttribute('aria-expanded') !== 'true') {
+      navToggle.setAttribute('aria-label', 'Open navigation menu');
+    }
   }
 
   // Back to Top Button
@@ -319,6 +335,42 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+});
+// Football page interactions
+document.addEventListener('DOMContentLoaded', () => {
+  const footballFaqTriggers = document.querySelectorAll('.faq-trigger-sports');
+  footballFaqTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const item = trigger.closest('.faq-item-sports');
+      const expanded = trigger.getAttribute('aria-expanded') === 'true';
+      trigger.setAttribute('aria-expanded', String(!expanded));
+      item?.classList.toggle('open', !expanded);
+    });
+  });
+
+  const countdown = document.getElementById('wc2030Countdown');
+  if (!countdown) return;
+
+  const target = new Date('2030-06-08T18:00:00Z').getTime();
+  const days = document.getElementById('wcDays');
+  const hours = document.getElementById('wcHours');
+  const minutes = document.getElementById('wcMinutes');
+  const seconds = document.getElementById('wcSeconds');
+
+  const updateCountdown = () => {
+    const remaining = Math.max(0, target - Date.now());
+    const dayValue = Math.floor(remaining / 86400000);
+    const hourValue = Math.floor((remaining % 86400000) / 3600000);
+    const minuteValue = Math.floor((remaining % 3600000) / 60000);
+    const secondValue = Math.floor((remaining % 60000) / 1000);
+    days && (days.textContent = dayValue.toLocaleString());
+    hours && (hours.textContent = String(hourValue).padStart(2, '0'));
+    minutes && (minutes.textContent = String(minuteValue).padStart(2, '0'));
+    seconds && (seconds.textContent = String(secondValue).padStart(2, '0'));
+    if (remaining > 0) window.setTimeout(updateCountdown, 1000);
+  };
+
+  updateCountdown();
 });
 /* ==========================================================================
    POSTER SHOWCASE SLIDER (standalone IIFE - prefix: ps)

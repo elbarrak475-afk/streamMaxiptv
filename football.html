@@ -73,37 +73,50 @@
         ]
     }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel='stylesheet' href='style.css'>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 
-<body>
+<body class="football-page">
 
-    <header>
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
-                    <polyline points="17 2 12 7 7 2"></polyline>
-                </svg>
-                StreamMax <span>IPTV</span>
-            </a>
-            <ul class="nav-links" id="navMenu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="football.html" class="active">Live Football</a></li>
-                <li><a href="sports.html">Live Sports</a></li>
-                <li><a href="catalog.html">VOD Catalog</a></li>
-                <li><a href="index.html#plans">Pricing Plans</a></li>
-                <li><a href="support.html">Support</a></li>
-            </ul>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"
-                aria-controls="navMenu">
-                <span></span><span></span><span></span>
-            </button>
+    <div class="page-shell">
+        <div class="top-announcement">
+            <div class="container announcement-inner">
+                <span class="announcement-badge"><i class="fa-solid fa-bolt"></i> LIMITED OFFER</span>
+                <p class="announcement-text">Experience Elite 4K Streaming — <strong>Claim Your 24-Hour Free Trial</strong> with Instant Setup!</p>
+                <a href="support.html#trial" class="announcement-link">Get Free Trial <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
         </div>
-    </header>
 
-    <section class="hero">
+        <header class="site-header">
+            <div class="container header-inner">
+                <a href="index.html" class="brand" aria-label="StreamMax IPTV Home">
+                    <span class="brand-icon-wrapper"><i class="fa-solid fa-play logo-icon" aria-hidden="true"></i></span>
+                    StreamMax<span>IPTV</span>
+                </a>
+                <nav class="site-nav" id="main-nav" aria-label="Primary navigation">
+                    <ul class="nav-list">
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#features">Why Us</a></li>
+                        <li><a href="index.html#plans">Pricing</a></li>
+                        <li><a href="reseller.html">Resellers</a></li>
+                        <li><a href="football.html" class="active">Live Football</a></li>
+                        <li><a href="sports.html">Live Sports</a></li>
+                        <li><a href="catalog.html">Channels &amp; VOD</a></li>
+                        <li><a href="support.html">Support</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <a href="support.html#trial" class="button button-header-trial"><i class="fa-solid fa-bolt"></i> Free Trial</a>
+                    <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" id="nav-toggle" aria-label="Toggle navigation menu">
+                        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+    <section class="football-hero">
         <h1>Anti-Freeze IPTV for <span>Live Sports Streaming</span> — Every Match in 4K & FHD</h1>
         <p>Never miss a game. Stream Champions League & Premier League, plus La Liga, Serie A, Bundesliga and MLS with
             premium sports channels — anti-freeze, Smart TV & Firestick compatible, and built for fans in the US &
@@ -428,60 +441,60 @@
         <a href="index.html#plans" class="btn">Start 24-Hour Free Trial</a>
     </section>
 
-    <footer>
-        <nav class="footer-links" aria-label="Footer navigation">
-            <a href="index.html">Home</a>
-            <a href="football.html">Live Football</a>
-            <a href="sports.html">Live Sports</a>
-            <a href="catalog.html">VOD Catalog</a>
-            <a href="reseller.html">Reseller Program</a>
-            <a href="index.html#plans">Pricing</a>
-            <a href="support.html">Support</a>
-            <a href="terms.html">Terms</a>
-            <a href="privacy.html">Privacy</a>
-        </nav>
-        <p>&copy; 2026 StreamMax IPTV. All rights reserved. Built for high-performance streaming.</p>
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-col-main">
+                <a href="index.html" class="brand footer-brand"><span class="brand-icon-wrapper"><i class="fa-solid fa-play logo-icon" aria-hidden="true"></i></span>StreamMax<span>IPTV</span></a>
+                <p class="footer-desc">The world's leading premium IPTV provider delivering 15,000+ live channels, PPV events, and 60,000+ 4K VOD titles with anti-freeze server infrastructure and 24/7 dedicated support.</p>
+                <div class="footer-status-pill"><span class="status-indicator"></span><span>All Global Server Clusters Operational (99.9%)</span></div>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#plans">Pricing Plans</a></li>
+                    <li><a href="reseller.html">Reseller Panels</a></li>
+                    <li><a href="sports.html">Live Sports</a></li>
+                    <li><a href="catalog.html">Channel Catalog</a></li>
+                    <li><a href="support.html">Contact &amp; Setup</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Contact &amp; Help</h3>
+                <ul>
+                    <li><a href="mailto:support@streammaxiptv.com"><i class="fa-solid fa-envelope"></i> support@streammaxiptv.com</a></li>
+                    <li><a href="support.html#contact-form"><i class="fa-brands fa-whatsapp"></i> WhatsApp Live Chat</a></li>
+                    <li><a href="support.html#contact-form"><i class="fa-brands fa-telegram"></i> Telegram Support</a></li>
+                    <li><a href="support.html#contact-form"><i class="fa-solid fa-ticket"></i> Open Support Ticket</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Connect &amp; Pay</h3>
+                <p class="footer-subtext">Reach our team anytime for fixture alerts, setup help, and server updates.</p>
+                <div class="footer-icon-row" aria-label="Support channels">
+                    <a href="support.html#contact-form" class="footer-icon-placeholder" aria-label="WhatsApp" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="support.html#contact-form" class="footer-icon-placeholder" aria-label="Telegram" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                </div>
+                <div class="footer-payment-wrapper">
+                    <span class="payment-title">Guaranteed Safe Checkout:</span>
+                    <div class="footer-payment-placeholders" aria-label="Supported payment methods">
+                        <span class="payment-placeholder" title="Visa Card"><i class="fa-brands fa-cc-visa"></i></span>
+                        <span class="payment-placeholder" title="Mastercard"><i class="fa-brands fa-cc-mastercard"></i></span>
+                        <span class="payment-placeholder" title="PayPal"><i class="fa-brands fa-paypal"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <div class="footer-bottom-inner">
+                <p>&copy; 2026 StreamMax IPTV. All rights reserved.</p>
+                <div class="footer-bottom-links"><a href="terms.html">Terms of Service</a><span>•</span><a href="privacy.html">Privacy Policy</a><span>•</span><a href="terms.html#refund">Refund Guarantee</a></div>
+            </div>
+        </div>
     </footer>
-
+    <button class="back-to-top" aria-label="Back to top" title="Scroll to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
+    <a class="sticky-cta" href="support.html#contact-form" aria-label="Chat with Support on WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>Live Support (Online)</span></a>
+</div>
+<script src="assets/script.js"></script>
 </body>
-<script>
-    document.querySelectorAll('.faq-trigger-sports').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-            var item = btn.closest('.faq-item-sports');
-            var isOpen = item.classList.toggle('open');
-            btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        });
-    });
-
-    // World Cup 2030 countdown (target: opening match, June 8, 2030 UTC)
-    (function () {
-        var target = new Date('2030-06-08T18:00:00Z').getTime();
-        var days = document.getElementById('wcDays'),
-            hours = document.getElementById('wcHours'),
-            minutes = document.getElementById('wcMinutes'),
-            seconds = document.getElementById('wcSeconds');
-
-        function pad(n) { return n < 10 ? '0' + n : String(n); }
-
-        function tick() {
-            var diff = target - Date.now();
-            if (diff <= 0) {
-                days.textContent = '0';
-                hours.textContent = minutes.textContent = seconds.textContent = '00';
-                return;
-            }
-            var d = Math.floor(diff / 86400000);
-            var h = Math.floor(diff % 86400000 / 3600000);
-            var m = Math.floor(diff % 3600000 / 60000);
-            var s = Math.floor(diff % 60000 / 1000);
-            days.textContent = d.toLocaleString();
-            hours.textContent = pad(h);
-            minutes.textContent = pad(m);
-            seconds.textContent = pad(s);
-            setTimeout(tick, 1000);
-        }
-        tick();
-    })();
-</script>
-
 </html>
