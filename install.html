@@ -1,0 +1,369 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Step-by-step installation guides for IPTV Smarters Pro, IBO Player, TiviMate, and more on Firestick, Smart TV, and Android." />
+  <meta name="keywords"
+    content="IPTV setup guide, IPTV Smarters setup, IBO Player installation, TiviMate setup, Firestick IPTV guide, Smart TV IPTV setup" />
+  <title>How to Install & Setup IPTV Apps | StreamMax IPTV</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@500;600;700;800&family=Montserrat:wght@600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    .install-hero .hero-actions {
+      justify-content: center;
+    }
+
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .app-card {
+      background: rgba(12, 17, 27, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .app-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(82, 214, 255, 0.5);
+    }
+
+    .app-card > img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      margin: 0;
+      display: block;
+    }
+
+    .app-card-body {
+      padding: 1.5rem 1.4rem 1.7rem;
+    }
+
+    .app-card h3 {
+      margin: 0 0 0.7rem;
+      font-size: 1.5rem;
+      color: #f4f7fb;
+    }
+
+    .app-card p {
+      margin: 0 0 1.2rem;
+      color: rgba(233, 239, 249, 0.84);
+      line-height: 1.7;
+    }
+
+    .guide-list {
+      display: grid;
+      gap: 1.4rem;
+    }
+
+    .guide-item {
+      background: rgba(10, 15, 24, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 22px;
+      padding: 1.6rem 1.5rem;
+    }
+
+    .guide-head {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .guide-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.1rem;
+      height: 2.1rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #4f9cff, #5eead4);
+      color: #07111d;
+      font-weight: 800;
+      font-size: 0.86rem;
+    }
+
+    .guide-head h3 {
+      margin: 0;
+      color: #f4f7fb;
+      font-size: 1.4rem;
+    }
+
+    .guide-steps {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: rgba(233, 239, 249, 0.9);
+      line-height: 1.8;
+    }
+
+    .guide-steps li + li {
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .app-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .app-card h3 {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-shell">
+    <div class="top-announcement">
+      <div class="container announcement-inner">
+        <span class="announcement-badge"><i class="fa-solid fa-bolt"></i> LIMITED OFFER</span>
+        <p class="announcement-text">Experience Elite 4K Streaming — <strong>Claim Your 24-Hour Free Trial</strong> with
+          Instant Setup!</p>
+        <a href="support.html#trial" class="announcement-link">Get Free Trial <i
+            class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="brand" aria-label="StreamMax IPTV Home">
+          <span class="brand-icon-wrapper"><i class="fa-solid fa-play logo-icon" aria-hidden="true"></i></span>
+          StreamMax<span>IPTV</span>
+        </a>
+        <nav class="site-nav" id="main-nav" aria-label="Primary navigation">
+          <ul class="nav-list">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#features">Why Us</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="install.html" class="active">How To Install</a></li>
+            <li><a href="reseller.html">Resellers</a></li>
+            <li><a href="football.html">Live Football</a></li>
+            <li><a href="sports.html">Live Sports</a></li>
+            <li><a href="catalog.html">Channels &amp; VOD</a></li>
+            <li><a href="support.html">Support</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <a href="support.html#trial" class="button button-header-trial"><i class="fa-solid fa-bolt"></i> Free Trial</a>
+          <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" id="nav-toggle"
+            aria-label="Toggle navigation menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero page-hero--support install-hero">
+        <div class="page-hero-background" aria-hidden="true"></div>
+        <div class="page-hero-overlay"></div>
+        <div class="container hero-content hero-content--small">
+          <div class="hero-badge-pill">
+            <span class="pulse-dot"></span>
+            <span>SETUP MADE SIMPLE</span>
+          </div>
+          <h1>How to Install IPTV Apps</h1>
+          <p class="hero-text">Select your device or preferred application to view the step-by-step setup guide.</p>
+          <div class="hero-actions">
+            <a href="#setup-guides" class="button button-primary"><i class="fa-solid fa-download"></i> View Setup Guides</a>
+            <a href="support.html#trial" class="button button-secondary"><i class="fa-solid fa-bolt"></i> Start Free Trial</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="setup-guides">
+        <div class="container section-heading">
+          <span class="eyebrow"><i class="fa-solid fa-mobile-screen-button"></i> App Guides</span>
+          <h2>Choose Your Setup Path</h2>
+          <p>Follow the steps tailored to your device and app. Everything works with Firestick, Android TV, Smart TVs, and mobile devices.</p>
+        </div>
+
+        <div class="container app-grid">
+          <article class="app-card">
+            <img src="assets/images/apps/smarters.jpg" alt="IPTV Smarters Pro">
+            <div class="app-card-body">
+              <h3>IPTV Smarters Pro</h3>
+              <p>Perfect for Firestick, Android, and Smart TV setups with Xtream Codes or M3U credentials.</p>
+              <a href="smarters-guide.html" class="button button-outline button-full">VIEW GUIDE</a>
+            </div>
+          </article>
+
+          <article class="app-card">
+            <img src="assets/images/apps/ibo.jpg" alt="IBO Player Pro">
+            <div class="app-card-body">
+              <h3>IBO Player Pro</h3>
+              <p>Built for Samsung, LG, Firestick, and Android devices with a smooth EPG and full channel navigation.</p>
+              <a href="ibo-guide.html" class="button button-outline button-full">VIEW GUIDE</a>
+            </div>
+          </article>
+
+          <article class="app-card">
+            <img src="assets/images/apps/Downloader Codes.png" alt="Downloader App">
+            <div class="app-card-body">
+              <h3>Downloader App</h3>
+              <p>Essential sideloading tool for Firestick &amp; Android</p>
+              <a href="downloader-guide.html" class="button button-outline button-full">VIEW GUIDE</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--alt reveal" aria-label="Installation guides">
+        <div class="container section-heading">
+          <span class="eyebrow"><i class="fa-solid fa-circle-info"></i> Setup Instructions</span>
+          <h2>Quick Start Walkthroughs</h2>
+          <p>Use the steps below to connect your device, input your login details, and begin streaming in minutes.</p>
+        </div>
+
+        <div class="container guide-list">
+          <article class="guide-item" id="guide-smarters">
+            <div class="guide-head">
+              <span class="guide-tag">1</span>
+              <h3>IPTV Smarters Pro</h3>
+            </div>
+            <ol class="guide-steps">
+              <li>Download IPTV Smarters Pro from the official app store or trusted APK source on your Firestick, Android TV, or Smart TV.</li>
+              <li>Open the app and select the Xtream Codes API login method.</li>
+              <li>Enter the server URL, username, and password provided by StreamMax after purchase.</li>
+              <li>Save the profile and wait for channels, movies, and the live TV guide to load.</li>
+            </ol>
+          </article>
+
+          <article class="guide-item" id="guide-ibo">
+            <div class="guide-head">
+              <span class="guide-tag">2</span>
+              <h3>IBO Player Pro</h3>
+            </div>
+            <ol class="guide-steps">
+              <li>Install IBO Player Pro from the Samsung, LG, or Fire TV app store.</li>
+              <li>Launch the app and choose the option to add a playlist or Xtream connection.</li>
+              <li>Paste your StreamMax M3U URL or Xtream credentials exactly as provided in your activation email.</li>
+              <li>Refresh the content list and start streaming in HD or 4K with the built-in EPG.</li>
+            </ol>
+          </article>
+
+          <article class="guide-item" id="guide-xc">
+            <div class="guide-head">
+              <span class="guide-tag">3</span>
+              <h3>XCIPTV Player</h3>
+            </div>
+            <ol class="guide-steps">
+              <li>Install XCIPTV on your Android box, phone, or tablet from the Play Store or a trusted APK website.</li>
+              <li>Open the app and choose the login option for Xtream Codes or M3U playlist.</li>
+              <li>Enter your StreamMax login, server URL, and channel list data.</li>
+              <li>Allow the app to load categories, then browse sports, movies, and live TV channels.</li>
+            </ol>
+          </article>
+
+          <article class="guide-item" id="guide-tivimate">
+            <div class="guide-head">
+              <span class="guide-tag">4</span>
+              <h3>TiviMate</h3>
+            </div>
+            <ol class="guide-steps">
+              <li>Install TiviMate on Android TV or Fire TV and launch it after the initial setup screen.</li>
+              <li>Select the method to add your playlist or login credentials.</li>
+              <li>Paste the Xtream or M3U details from your StreamMax account and save the profile.</li>
+              <li>Open your channels list and use the guide to enjoy live content with a premium interface.</li>
+            </ol>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-col-main">
+          <a href="index.html" class="brand footer-brand"><span class="brand-icon-wrapper"><i
+                class="fa-solid fa-play logo-icon" aria-hidden="true"></i></span>StreamMax<span>IPTV</span></a>
+          <p class="footer-desc">The world's leading premium IPTV provider delivering 15,000+ live channels, PPV events,
+            and 60,000+ 4K VOD titles with anti-freeze server infrastructure and 24/7 dedicated support.</p>
+          <div class="footer-status-pill"><span class="status-indicator"></span><span>All Global Server Clusters
+              Operational (99.9%)</span></div>
+        </div>
+        <div>
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="pricing.html">Pricing Plans</a></li>
+            <li><a href="install.html">How To Install</a></li>
+            <li><a href="reseller.html">Reseller Panels</a></li>
+            <li><a href="sports.html">Live Sports Schedule</a></li>
+            <li><a href="catalog.html">Channel Catalog</a></li>
+            <li><a href="support.html">Contact & Setup</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contact & Help</h3>
+          <ul>
+            <li><a href="mailto:support@streammaxiptv.com"><i class="fa-solid fa-envelope"></i>
+                support@streammaxiptv.com</a></li>
+            <li><a href="support.html#contact-form"><i class="fa-brands fa-whatsapp"></i> WhatsApp Live Chat</a></li>
+            <li><a href="support.html#contact-form"><i class="fa-brands fa-telegram"></i> Telegram Support</a></li>
+            <li><a href="support.html#contact-form"><i class="fa-solid fa-ticket"></i> Open Support Ticket</a></li>
+            <li><a href="index.html#faq"><i class="fa-solid fa-circle-question"></i> Help FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Connect & Pay</h3>
+          <p class="footer-subtext">Reach our team anytime for fixture alerts, setup help, and server updates.</p>
+          <div class="footer-icon-row" aria-label="Support channels">
+            <a href="support.html#contact-form" class="footer-icon-placeholder" aria-label="WhatsApp"
+              title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="support.html#contact-form" class="footer-icon-placeholder" aria-label="Telegram"
+              title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+          </div>
+          <div class="footer-payment-wrapper">
+            <span class="payment-title">Guaranteed Safe Checkout:</span>
+            <div class="footer-payment-placeholders" aria-label="Supported payment methods">
+              <span class="payment-placeholder" title="Visa Card"><i class="fa-brands fa-cc-visa"></i></span>
+              <span class="payment-placeholder" title="Mastercard"><i class="fa-brands fa-cc-mastercard"></i></span>
+              <span class="payment-placeholder" title="Apple Pay"><i class="fa-brands fa-cc-apple-pay"></i></span>
+              <span class="payment-placeholder" title="PayPal"><i class="fa-brands fa-paypal"></i></span>
+              <span class="payment-placeholder" title="Bitcoin / Crypto"><i class="fa-brands fa-bitcoin"></i></span>
+              <span class="payment-placeholder" title="USDT Tether"><i class="fa-solid fa-coins"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <div class="footer-bottom-inner">
+          <p>&copy; 2026 StreamMax IPTV. All rights reserved.</p>
+          <div class="footer-bottom-links"><a href="terms.html">Terms of Service</a><span>•</span><a
+              href="privacy.html">Privacy Policy</a><span>•</span><a href="terms.html#refund">Refund Guarantee</a></div>
+        </div>
+      </div>
+    </footer>
+    <button class="back-to-top" aria-label="Back to top" title="Scroll to top"><i class="fa-solid fa-arrow-up"
+        aria-hidden="true"></i></button>
+    <a class="sticky-cta" href="support.html#contact-form" aria-label="Chat with Support on WhatsApp"><i
+        class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>Live
+        Support (Online)</span></a>
+  </div>
+  <script src="assets/script.js"></script>
+</body>
+
+</html>

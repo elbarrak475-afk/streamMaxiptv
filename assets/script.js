@@ -400,7 +400,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   var index = 0;
-  var AUTOPLAY_MS = 3200;
+  var TRANSITION_MS = 360;
+  var AUTOPLAY_MS = 1800;
   var timer = null;
   var isDragging = false;
   var dragStartX = 0;
@@ -436,11 +437,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Just animated past the last original -> snap back invisibly.
     if (index >= count) {
       index = index % count;
-      setTimeout(function () { setTranslate(positionFor(index), false); }, 720);
+      setTimeout(function () { setTranslate(positionFor(index), false); }, TRANSITION_MS);
     }
     if (index < 0) {
       index = count + (index % count);
-      setTimeout(function () { setTranslate(positionFor(index), false); }, 720);
+      setTimeout(function () { setTranslate(positionFor(index), false); }, TRANSITION_MS);
     }
   }
 

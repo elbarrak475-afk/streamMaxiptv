@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Follow the step-by-step IBO Player Pro installation and playlist activation guide for Smart TV and Firestick." />
+  <meta name="keywords"
+    content="IBO Player Pro guide, IBO Player Smart TV setup, IBO Player Firestick, IPTV playlist activation" />
+  <title>IBO Player Pro Installation Guide | StreamMax IPTV</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@500;600;700;800&family=Montserrat:wght@600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    .guide-hero .hero-actions {
+      justify-content: center;
+    }
+
+    .ibo-guide {
+      display: grid;
+      gap: 1.5rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .ibo-step {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+      gap: 1.5rem;
+      align-items: stretch;
+      padding: 1.5rem;
+      background: rgba(10, 15, 24, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 22px;
+    }
+
+    .step-image-placeholder {
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      padding: 1.25rem;
+      border: 1px dashed rgba(94, 234, 212, 0.55);
+      border-radius: 14px;
+      background: linear-gradient(145deg, rgba(22, 35, 53, 0.9), rgba(13, 24, 38, 0.8));
+      color: rgba(233, 239, 249, 0.76);
+      text-align: center;
+    }
+
+    .step-image-placeholder i {
+      color: #5eead4;
+      font-size: 2rem;
+    }
+
+    .step-image-placeholder span {
+      font-size: 0.84rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .step-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .step-heading {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #4f9cff, #5eead4);
+      color: #07111d;
+      font-weight: 800;
+    }
+
+    .step-content h2 {
+      margin: 0;
+      color: #f4f7fb;
+      font-size: 1.35rem;
+    }
+
+    .step-content p {
+      margin: 0;
+      color: rgba(233, 239, 249, 0.86);
+      line-height: 1.75;
+    }
+
+    .guide-cta {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .guide-cta p {
+      margin: 0 0 1rem;
+      color: rgba(233, 239, 249, 0.84);
+    }
+
+    @media (max-width: 680px) {
+      .ibo-step {
+        grid-template-columns: 1fr;
+      }
+
+      .step-image-placeholder {
+        min-height: 150px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-shell">
+    <div class="top-announcement">
+      <div class="container announcement-inner">
+        <span class="announcement-badge"><i class="fa-solid fa-bolt"></i> LIMITED OFFER</span>
+        <p class="announcement-text">Experience Elite 4K Streaming — <strong>Claim Your 24-Hour Free Trial</strong> with
+          Instant Setup!</p>
+        <a href="support.html#trial" class="announcement-link">Get Free Trial <i
+            class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="brand" aria-label="StreamMax IPTV Home">
+          <span class="brand-icon-wrapper"><i class="fa-solid fa-play logo-icon" aria-hidden="true"></i></span>
+          StreamMax<span>IPTV</span>
+        </a>
+        <nav class="site-nav" id="main-nav" aria-label="Primary navigation">
+          <ul class="nav-list">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#features">Why Us</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="install.html" class="active">How To Install</a></li>
+            <li><a href="reseller.html">Resellers</a></li>
+            <li><a href="football.html">Live Football</a></li>
+            <li><a href="sports.html">Live Sports</a></li>
+            <li><a href="catalog.html">Channels &amp; VOD</a></li>
+            <li><a href="support.html">Support</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <a href="support.html#trial" class="button button-header-trial"><i class="fa-solid fa-bolt"></i> Free Trial</a>
+          <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" id="nav-toggle"
+            aria-label="Toggle navigation menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero page-hero--support guide-hero">
+        <div class="page-hero-background" aria-hidden="true"></div>
+        <div class="page-hero-overlay"></div>
+        <div class="container hero-content hero-content--small">
+          <div class="hero-badge-pill">
+            <span class="pulse-dot"></span>
+            <span>IBO PLAYER PRO GUIDE</span>
+          </div>
+          <h1>Install IBO Player Pro</h1>
+          <p class="hero-text">Set up IBO Player Pro, find your device details, and activate your playlist in three simple steps.</p>
+          <div class="hero-actions">
+            <a href="#ibo-steps" class="button button-primary"><i class="fa-solid fa-list-check"></i> View Steps</a>
+            <a href="pricing.html" class="button button-secondary"><i class="fa-solid fa-bolt"></i> View Plans</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="ibo-steps">
+        <div class="container section-heading">
+          <span class="eyebrow"><i class="fa-solid fa-display"></i> Step-by-Step Setup</span>
+          <h2>Set Up IBO Player Pro</h2>
+          <p>Complete each step in order to install the app and connect your StreamMax playlist.</p>
+        </div>
+
+        <div class="container ibo-guide">
+          <article class="ibo-step">
+            <div class="step-image-placeholder" role="img" aria-label="Placeholder for the IBO Player Pro app store screen">
+              <i class="fa-solid fa-image" aria-hidden="true"></i>
+              <span>Step 1 image placeholder</span>
+            </div>
+            <div class="step-content">
+              <div class="step-heading">
+                <span class="step-number">1</span>
+                <h2>Install on Smart TV or Firestick</h2>
+              </div>
+              <p>Open the app store on your Samsung, LG, Android TV, or Firestick device. Search for <strong>IBO Player Pro</strong>, select the official app, and choose Install or Get. Launch the app when installation is complete.</p>
+            </div>
+          </article>
+
+          <article class="ibo-step">
+            <div class="step-image-placeholder" role="img" aria-label="Placeholder for the IBO Player Pro MAC address and Device Key screen">
+              <i class="fa-solid fa-image" aria-hidden="true"></i>
+              <span>Step 2 image placeholder</span>
+            </div>
+            <div class="step-content">
+              <div class="step-heading">
+                <span class="step-number">2</span>
+                <h2>Locate Your MAC &amp; Device Key</h2>
+              </div>
+              <p>Open IBO Player Pro and wait for the home screen. Note the MAC address and Device Key shown on the screen. Keep both details available because they identify your device during playlist activation.</p>
+            </div>
+          </article>
+
+          <article class="ibo-step">
+            <div class="step-image-placeholder" role="img" aria-label="Placeholder for activating an IBO Player Pro playlist on the website">
+              <i class="fa-solid fa-image" aria-hidden="true"></i>
+              <span>Step 3 image placeholder</span>
+            </div>
+            <div class="step-content">
+              <div class="step-heading">
+                <span class="step-number">3</span>
+                <h2>Activate Your Playlist via the Site</h2>
+              </div>
+              <p>Open the IBO Player activation site, enter your MAC address and Device Key, then add the M3U playlist or Xtream Codes details provided by StreamMax. Save the activation and restart IBO Player Pro to load your channels and guide.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="container guide-cta">
+          <p>Ready to start streaming? Choose a plan and get your service details.</p>
+          <a href="pricing.html" class="button button-primary"><i class="fa-solid fa-tags"></i> View Pricing Plans</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-col-main">
+          <a href="index.html" class="brand footer-brand"><span class="brand-icon-wrapper"><i
+                class="fa-solid fa-play logo-icon" aria-hidden="true"></i></span>StreamMax<span>IPTV</span></a>
+          <p class="footer-desc">The world's leading premium IPTV provider delivering 15,000+ live channels, PPV events,
+            and 60,000+ 4K VOD titles with anti-freeze server infrastructure and 24/7 dedicated support.</p>
+          <div class="footer-status-pill"><span class="status-indicator"></span><span>All Global Server Clusters
+              Operational (99.9%)</span></div>
+        </div>
+        <div>
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="pricing.html">Pricing Plans</a></li>
+            <li><a href="install.html">How To Install</a></li>
+            <li><a href="reseller.html">Reseller Panels</a></li>
+            <li><a href="sports.html">Live Sports Schedule</a></li>
+            <li><a href="catalog.html">Channel Catalog</a></li>
+            <li><a href="support.html">Contact &amp; Setup</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contact &amp; Help</h3>
+          <ul>
+            <li><a href="mailto:support@streammaxiptv.com"><i class="fa-solid fa-envelope"></i>
+                support@streammaxiptv.com</a></li>
+            <li><a href="support.html#contact-form"><i class="fa-brands fa-whatsapp"></i> WhatsApp Live Chat</a></li>
+            <li><a href="support.html#contact-form"><i class="fa-brands fa-telegram"></i> Telegram Support</a></li>
+            <li><a href="support.html#contact-form"><i class="fa-solid fa-ticket"></i> Open Support Ticket</a></li>
+            <li><a href="index.html#faq"><i class="fa-solid fa-circle-question"></i> Help FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Connect &amp; Pay</h3>
+          <p class="footer-subtext">Reach our team anytime for fixture alerts, setup help, and server updates.</p>
+          <div class="footer-icon-row" aria-label="Support channels">
+            <a href="support.html#contact-form" class="footer-icon-placeholder" aria-label="WhatsApp"
+              title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="support.html#contact-form" class="footer-icon-placeholder" aria-label="Telegram"
+              title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+          </div>
+          <div class="footer-payment-wrapper">
+            <span class="payment-title">Guaranteed Safe Checkout:</span>
+            <div class="footer-payment-placeholders" aria-label="Supported payment methods">
+              <span class="payment-placeholder" title="Visa Card"><i class="fa-brands fa-cc-visa"></i></span>
+              <span class="payment-placeholder" title="Mastercard"><i class="fa-brands fa-cc-mastercard"></i></span>
+              <span class="payment-placeholder" title="Apple Pay"><i class="fa-brands fa-cc-apple-pay"></i></span>
+              <span class="payment-placeholder" title="PayPal"><i class="fa-brands fa-paypal"></i></span>
+              <span class="payment-placeholder" title="Bitcoin / Crypto"><i class="fa-brands fa-bitcoin"></i></span>
+              <span class="payment-placeholder" title="USDT Tether"><i class="fa-solid fa-coins"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <div class="footer-bottom-inner">
+          <p>&copy; 2026 StreamMax IPTV. All rights reserved.</p>
+          <div class="footer-bottom-links"><a href="terms.html">Terms of Service</a><span>•</span><a
+              href="privacy.html">Privacy Policy</a><span>•</span><a href="terms.html#refund">Refund Guarantee</a></div>
+        </div>
+      </div>
+    </footer>
+    <button class="back-to-top" aria-label="Back to top" title="Scroll to top"><i class="fa-solid fa-arrow-up"
+        aria-hidden="true"></i></button>
+    <a class="sticky-cta" href="support.html#contact-form" aria-label="Chat with Support on WhatsApp"><i
+        class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>Live
+        Support (Online)</span></a>
+  </div>
+  <script src="assets/script.js"></script>
+</body>
+
+</html>
