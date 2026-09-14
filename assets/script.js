@@ -1,5 +1,19 @@
 ﻿// StreamMax IPTV - Core Interactive Features
 document.addEventListener('DOMContentLoaded', () => {
+  // Scroll progress indicator
+  const scrollProgressFill = document.querySelector('.scroll-progress-fill');
+  if (scrollProgressFill) {
+    const updateScrollProgress = () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = totalScroll > 0 ? (scrollTop / totalScroll) * 100 : 0;
+      scrollProgressFill.style.width = `${Math.min(Math.max(progress, 0), 100)}%`;
+    };
+
+    updateScrollProgress();
+    window.addEventListener('scroll', updateScrollProgress, { passive: true });
+  }
+
   // Mobile Navigation Toggle
   const navToggle = document.getElementById('nav-toggle');
   const mainNav = document.getElementById('main-nav');

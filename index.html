@@ -38,6 +38,142 @@
     rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    .wa-reviews-slider {
+      max-width: 960px;
+      margin: 0 auto 3rem;
+      padding: 0 1rem;
+      overflow: hidden;
+    }
+
+    .wa-reviews-track {
+      display: flex;
+      gap: 1rem;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .wa-reviews-slide {
+      flex: 0 0 100%;
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* Sleek smartphone-screen card: rounded-2xl, emerald border glow, deep shadow */
+    .wa-reviews-slide img {
+      max-width: 100%;
+      max-height: 480px;
+      width: auto;
+      border-radius: 1rem; /* rounded-2xl */
+      border: 1px solid rgba(16, 185, 129, 0.2); /* border-emerald-500/20 */
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6); /* shadow-2xl */
+      transition: all 0.3s ease; /* transition-all duration-300 */
+    }
+
+    /* Hover: subtle zoom + stronger emerald glow (hover:scale-105 hover:border-emerald-500/50) */
+    .wa-reviews-slide:hover img {
+      transform: scale(1.05);
+      border-color: rgba(16, 185, 129, 0.5);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 24px rgba(16, 185, 129, 0.25);
+    }
+
+    /* "Verified Order ✓" badge — top right corner of each image */
+    .wa-verified-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.6rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #6ee7b7;
+      background: rgba(6, 78, 59, 0.85);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-radius: 9999px;
+      backdrop-filter: blur(4px);
+      pointer-events: none;
+    }
+
+    .wa-reviews-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .wa-reviews-dots button {
+      width: 10px;
+      height: 10px;
+      padding: 0;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .wa-reviews-dots button.wa-active {
+      background: #5eead4;
+    }
+
+    @media (min-width: 680px) {
+      .wa-reviews-slide {
+        flex: 0 0 calc(50% - 0.5rem);
+      }
+    }
+
+    /* ---- Animated glowing green wave background (testimonials section only) ---- */
+    .testimonials-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .wa-wave-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .wa-wave-bg svg {
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+      width: 200%;
+      height: 55%;
+      min-height: 220px;
+    }
+
+    .wa-wave-bg .wa-wave-1 { animation: waWaveSlide 14s linear infinite, waWaveGlow 4s ease-in-out infinite; }
+    .wa-wave-bg .wa-wave-2 { animation: waWaveSlide 22s linear infinite reverse, waWaveGlow 5s ease-in-out infinite 1.2s; }
+
+    @keyframes waWaveSlide {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    @keyframes waWaveGlow {
+      0%, 100% { opacity: 0.25; filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.4)); }
+      50%      { opacity: 0.6;  filter: drop-shadow(0 0 18px rgba(16, 185, 129, 0.8)); }
+    }
+
+    /* Keep section content above the waves */
+    .testimonials-section > .container,
+    .testimonials-section > .wa-reviews-slider,
+    .testimonials-section > .trust-metric-bar {
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .wa-wave-bg .wa-wave-1,
+      .wa-wave-bg .wa-wave-2 { animation: none; }
+    }
+  </style>
 </head>
 
 <body>
@@ -408,7 +544,7 @@
                 <li><i class="fa-solid fa-check"></i> Redundant tier-4 datacenter nodes</li>
               </ul>
             </div>
-          </article> 
+          </article>
           <article class="feature-card">
             <div class="feature-icon-box"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i></div>
             <div class="feature-card-content">
@@ -508,87 +644,49 @@
 
       <!-- 7. SOCIAL PROOF / SUBSCRIBER TESTIMONIALS -->
       <section class="testimonials-section reveal" aria-label="Customer testimonials">
+        <div class="wa-wave-bg" aria-hidden="true">
+          <svg class="wa-wave-1" viewBox="0 0 2880 320" preserveAspectRatio="none" fill="none">
+            <path d="M0 160 C 240 40, 480 40, 720 160 S 1200 280, 1440 160 S 1920 40, 2160 160 S 2640 280, 2880 160 V 320 H 0 Z" fill="url(#waWaveGrad1)"/>
+            <defs>
+              <linearGradient id="waWaveGrad1" x1="0" y1="0" x2="2880" y2="0" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#10b981" stop-opacity="0"/>
+                <stop offset="0.5" stop-color="#34d399" stop-opacity="0.35"/>
+                <stop offset="1" stop-color="#10b981" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <svg class="wa-wave-2" viewBox="0 0 2880 320" preserveAspectRatio="none" fill="none">
+            <path d="M0 200 C 240 320, 480 320, 720 200 S 1200 80, 1440 200 S 1920 320, 2160 200 S 2640 80, 2880 200" stroke="#34d399" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <defs>
+              <linearGradient id="waWaveGrad2" x1="0" y1="0" x2="2880" y2="0" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#34d399" stop-opacity="0"/>
+                <stop offset="0.5" stop-color="#6ee7b7" stop-opacity="1"/>
+                <stop offset="1" stop-color="#34d399" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <path d="M0 200 C 240 320, 480 320, 720 200 S 1200 80, 1440 200 S 1920 320, 2160 200 S 2640 80, 2880 200 V 320 H 0 Z" fill="url(#waWaveGrad2)" opacity="0.18"/>
+          </svg>
+        </div>
         <div class="container section-heading">
           <span class="eyebrow"><i class="fa-solid fa-star"></i> Verified Subscribers</span>
           <h2>Trusted by 45,000+ Viewers Worldwide</h2>
           <p>Read genuine reviews from sports enthusiasts, families, and hospitality operators who rely on StreamMax
             daily.</p>
         </div>
-        <div class="container slider-shell">
-          <button class="slider-button slider-button--prev" aria-label="Previous testimonial"><i
-              class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
-          <div class="slider-track" id="testimonial-slider">
-            <article class="testimonial-card">
-              <div class="testimonial-rating" aria-label="5 out of 5 stars"><i class="fa-solid fa-star"></i><i
-                  class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                  class="fa-solid fa-star"></i></div>
-              <p class="testimonial-quote">"StreamMax completely replaced our $140/mo cable bill. The Premier League and
-                Champions League streams run at flawless 60FPS with zero freezing during the biggest derbies. Setup on
-                my Firestick took 2 minutes!"</p>
-              <div class="testimonial-author">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
-                  alt="Amara N." class="testimonial-avatar" loading="lazy" />
-                <div class="testimonial-meta">
-                  <div class="testimonial-name-row"><strong>Amara N.</strong><span class="verified-badge"><i
-                        class="fa-solid fa-circle-check"></i> Verified Buyer</span></div>
-                  <span class="testimonial-country">&#x1F1E6;&#x1F1EA; Dubai, UAE • Entertainment Director</span>
-                </div>
-              </div>
-            </article>
-            <article class="testimonial-card">
-              <div class="testimonial-rating" aria-label="5 out of 5 stars"><i class="fa-solid fa-star"></i><i
-                  class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                  class="fa-solid fa-star"></i></div>
-              <p class="testimonial-quote">"As an amateur soccer coach, I watch fixtures across Europe every weekend.
-                StreamMax delivers true 4K quality with crisp audio. Their WhatsApp support answered my setup question
-                within 3 minutes on a Sunday morning."</p>
-              <div class="testimonial-author">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80"
-                  alt="Jules M." class="testimonial-avatar" loading="lazy" />
-                <div class="testimonial-meta">
-                  <div class="testimonial-name-row"><strong>Jules M.</strong><span class="verified-badge"><i
-                        class="fa-solid fa-circle-check"></i> Verified Buyer</span></div>
-                  <span class="testimonial-country">&#x1F1EB;&#x1F1F7; Lyon, France • Sports Enthusiast</span>
-                </div>
-              </div>
-            </article>
-            <article class="testimonial-card">
-              <div class="testimonial-rating" aria-label="5 out of 5 stars"><i class="fa-solid fa-star"></i><i
-                  class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                  class="fa-solid fa-star"></i></div>
-              <p class="testimonial-quote">"I manage a boutique hotel in Barcelona. We installed StreamMax across 18
-                Smart TVs. Our international guests love having native channels from UK, Germany, USA, and Latin
-                America. The 99.9% uptime is genuine."</p>
-              <div class="testimonial-author">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&auto=format&fit=crop&q=80"
-                  alt="Marina R." class="testimonial-avatar" loading="lazy" />
-                <div class="testimonial-meta">
-                  <div class="testimonial-name-row"><strong>Marina R.</strong><span class="verified-badge"><i
-                        class="fa-solid fa-circle-check"></i> Verified Buyer</span></div>
-                  <span class="testimonial-country">&#x1F1EA;&#x1F1F8; Barcelona, Spain • Hotel Manager</span>
-                </div>
-              </div>
-            </article>
-            <article class="testimonial-card">
-              <div class="testimonial-rating" aria-label="5 out of 5 stars"><i class="fa-solid fa-star"></i><i
-                  class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                  class="fa-solid fa-star"></i></div>
-              <p class="testimonial-quote">"I also purchased a Reseller Panel with 100 credits. The sub-reseller portal
-                is super intuitive and my customers rarely report any downtime. StreamMax is by far the most stable IPTV
-                provider on the market."</p>
-              <div class="testimonial-author">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80"
-                  alt="David K." class="testimonial-avatar" loading="lazy" />
-                <div class="testimonial-meta">
-                  <div class="testimonial-name-row"><strong>David K.</strong><span class="verified-badge"><i
-                        class="fa-solid fa-circle-check"></i> VIP Reseller</span></div>
-                  <span class="testimonial-country">&#x1F1FA;&#x1F1F8; Florida, USA • Reseller Partner</span>
-                </div>
-              </div>
-            </article>
+        <div class="wa-reviews-slider" id="waReviewsSlider" aria-label="WhatsApp customer review screenshots">
+          <div class="wa-reviews-track" id="waReviewsTrack">
+            <div class="wa-reviews-slide"><span class="wa-verified-badge">Verified Order ✓</span><img src="assets/images/reviews/1.jpg" alt="WhatsApp review screenshot from a StreamMax IPTV customer" loading="lazy" /></div>
+            <div class="wa-reviews-slide"><span class="wa-verified-badge">Verified Order ✓</span><img src="assets/images/reviews/2.jpg" alt="WhatsApp review screenshot praising StreamMax 4K streaming quality" loading="lazy" /></div>
+            <div class="wa-reviews-slide"><span class="wa-verified-badge">Verified Order ✓</span><img src="assets/images/reviews/3.jpg" alt="WhatsApp review screenshot from a verified StreamMax subscriber" loading="lazy" /></div>
+            <div class="wa-reviews-slide"><span class="wa-verified-badge">Verified Order ✓</span><img src="assets/images/reviews/4.jpg" alt="WhatsApp review screenshot about StreamMax anti-freeze streaming" loading="lazy" /></div>
+            <div class="wa-reviews-slide"><span class="wa-verified-badge">Verified Order ✓</span><img src="assets/images/reviews/5.jpg" alt="WhatsApp review screenshot recommending StreamMax IPTV" loading="lazy" /></div>
+            <div class="wa-reviews-slide"><span class="wa-verified-badge">Verified Order ✓</span><img src="assets/images/reviews/6.jpg" alt="WhatsApp review screenshot from a StreamMax sports viewer" loading="lazy" /></div>
+            <div class="wa-reviews-slide"><span class="wa-verified-badge">Verified Order ✓</span><img src="assets/images/reviews/7.jpg" alt="WhatsApp review screenshot about StreamMax instant activation" loading="lazy" /></div>
+            <div class="wa-reviews-slide"><span class="wa-verified-badge">Verified Order ✓</span><img src="assets/images/reviews/8.jpg" alt="WhatsApp review screenshot from a StreamMax IPTV family subscriber" loading="lazy" /></div>
+            <div class="wa-reviews-slide"><span class="wa-verified-badge">Verified Order ✓</span><img src="assets/images/reviews/9.jpg" alt="WhatsApp review screenshot praising StreamMax channel lineup" loading="lazy" /></div>
+            <div class="wa-reviews-slide"><span class="wa-verified-badge">Verified Order ✓</span><img src="assets/images/reviews/10.jpg" alt="WhatsApp review screenshot from a loyal StreamMax customer" loading="lazy" /></div>
           </div>
-          <button class="slider-button slider-button--next" aria-label="Next testimonial"><i
-              class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+          <div class="wa-reviews-dots" id="waReviewsDots" role="tablist" aria-label="WhatsApp review slides"></div>
         </div>
         <div class="container trust-metric-bar">
           <div class="trust-metric-item">
@@ -908,6 +1006,82 @@
     </div>
   </div>
   <script src="assets/script.js"></script>
+  <script>
+    (function () {
+      var track = document.getElementById('waReviewsTrack');
+      var slider = document.getElementById('waReviewsSlider');
+      var dotsWrap = document.getElementById('waReviewsDots');
+      if (!track || !slider || !dotsWrap) return;
+
+      var slides = track.children;
+      var count = slides.length;
+      var index = 0;
+      var timer = null;
+      var INTERVAL = 1700;
+
+      for (var i = 0; i < count; i++) {
+        var dot = document.createElement('button');
+        dot.type = 'button';
+        dot.setAttribute('aria-label', 'Go to WhatsApp review ' + (i + 1));
+        dot.dataset.index = i;
+        dot.addEventListener('click', function () {
+          index = parseInt(this.dataset.index, 10);
+          update();
+          restart();
+        });
+        dotsWrap.appendChild(dot);
+      }
+      var dots = dotsWrap.children;
+
+      function perView() {
+        return window.innerWidth >= 680 ? 2 : 1;
+      }
+
+      function maxIndex() {
+        return Math.max(0, count - perView());
+      }
+
+      function update() {
+        if (index > maxIndex()) index = 0;
+        var slide = slides[0];
+        var gap = parseFloat(getComputedStyle(track).gap) || 0;
+        var offset = index * (slide.getBoundingClientRect().width + gap);
+        track.style.transform = 'translateX(-' + offset + 'px)';
+        for (var d = 0; d < dots.length; d++) {
+          dots[d].classList.toggle('wa-active', d === index);
+        }
+      }
+
+      function next() {
+        index = index >= maxIndex() ? 0 : index + 1;
+        update();
+      }
+
+      function start() {
+        timer = setInterval(next, INTERVAL);
+      }
+
+      function stop() {
+        if (timer) clearInterval(timer);
+        timer = null;
+      }
+
+      function restart() {
+        stop();
+        start();
+      }
+
+      slider.addEventListener('mouseenter', stop);
+      slider.addEventListener('mouseleave', start);
+      window.addEventListener('resize', function () {
+        index = Math.min(index, maxIndex());
+        update();
+      });
+
+      update();
+      start();
+    })();
+  </script>
 </body>
 
 </html>
