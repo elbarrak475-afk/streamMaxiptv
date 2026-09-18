@@ -22,12 +22,107 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {"@type":"Question","name":"How quickly will I receive my login credentials after payment?","acceptedAnswer":{"@type":"Answer","text":"StreamMax IPTV credentials, M3U links, Xtream Codes details, and installation instructions are delivered directly to your screen and email within 60 seconds after payment confirmation."}},
-      {"@type":"Question","name":"How can I test StreamMax with a 24-Hour Free Trial?","acceptedAnswer":{"@type":"Answer","text":"StreamMax offers a free 24-hour IPTV trial with no credit card required. Click Start Free Trial or message the team through WhatsApp or Telegram to request access."}},
-      {"@type":"Question","name":"Which apps and streaming devices are supported?","acceptedAnswer":{"@type":"Answer","text":"StreamMax works with Firestick, Android TV, Samsung and LG Smart TVs, Apple TV, iPhone, iPad, MAG, Formuler, Windows, and Mac devices."}},
-      {"@type":"Question","name":"What internet speed is recommended for buffer-free 4K streaming?","acceptedAnswer":{"@type":"Answer","text":"A stable 15 Mbps connection is suitable for HD streaming. StreamMax recommends 30 to 50 Mbps for smooth 4K and 60FPS sports streaming."}}
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://streammaxiptv.com/#organization",
+        "name": "StreamMax IPTV",
+        "url": "https://streammaxiptv.com/",
+        "logo": "https://streammaxiptv.com/assets/favicon.svg",
+        "image": "https://streammaxiptv.com/assets/images/worldcup2030.jpeg",
+        "description": "StreamMax IPTV is a premium IPTV provider offering 15,000+ live TV channels, 60,000+ movies and series in 4K, anti-freeze streaming technology, and 24/7 dedicated support.",
+        "email": "support@streammaxiptv.com",
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "telephone": "+212788774886",
+            "availableLanguage": ["English", "French", "Arabic", "Spanish"]
+          }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://streammaxiptv.com/#website",
+        "url": "https://streammaxiptv.com/",
+        "name": "StreamMax IPTV",
+        "description": "Best 4K IPTV Subscription with 24-Hour Free Trial, 15,000+ live channels, and 60,000+ VOD titles.",
+        "publisher": {
+          "@id": "https://streammaxiptv.com/#organization"
+        },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://streammaxiptv.com/#faq",
+        "url": "https://streammaxiptv.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How quickly will I receive my login credentials after payment?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our activation process is fully automated! Once payment is confirmed, your M3U link, Xtream Codes credentials (Server URL, Username, and Password), and installation instructions are delivered directly to your screen and email within 60 seconds."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use my IPTV subscription on multiple devices simultaneously?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can install StreamMax on as many devices as you like. For concurrent streaming, our Starter Plan supports 1 device, Premium Plan supports 2 screens, and our Ultimate Elite Plan supports up to 4 devices streaming in 4K at the exact same time across different rooms."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How can I test StreamMax with a 24-Hour Free Trial?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We offer a 100% free 24-Hour trial with no credit card required. Simply click the 'Start Free Trial' button or message our team directly via WhatsApp or Telegram. Our support agents will generate your test credentials within minutes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need a VPN to use StreamMax IPTV?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No VPN is required! Our streams are securely encrypted and routed through our private CDN. However, if your local ISP throttles video streaming traffic, StreamMax is 100% compatible with all major VPNs (ExpressVPN, NordVPN, Surfshark, IPVanish, etc.)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What internet speed is recommended for buffer-free 4K streaming?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For standard HD streams, a download speed of 15 Mbps is sufficient. For Ultra 4K and 60FPS live sports broadcasts, we recommend a stable connection of at least 30–50 Mbps. Connecting your streaming device via Ethernet or 5GHz Wi-Fi ensures optimal stability."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which apps and streaming devices are supported?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "StreamMax is compatible with virtually every modern device: Amazon Firestick / Fire TV, Android TV boxes (Nvidia Shield, Xiaomi Mi Box), Samsung & LG Smart TVs (via IBO Player, Smart IPTV, IPTV Smarters), Apple TV, iPhone/iPad, MAG boxes, Formuler, Windows PC, macOS, and Linux."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the Reseller Panel program work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "When you purchase a Reseller Panel, you receive access to an intuitive web dashboard preloaded with credits. You use credits to generate 1-month, 3-month, 6-month, or 12-month client accounts, customize playlists, and create sub-resellers under your own brand. Credits never expire! Visit our Resellers Page to explore wholesale packages."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What payment methods do you accept and what is your refund policy?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We accept major Credit/Debit Cards (Visa, MasterCard, American Express), Apple Pay, PayPal, and Cryptocurrencies (Bitcoin, USDT, Ethereum). We back our service with a 7-Day Money-Back Guarantee if we are unable to resolve any technical issues you experience."
+            }
+          }
+        ]
+      }
     ]
   }
   </script>
@@ -48,12 +143,13 @@
 
     .wa-reviews-track {
       display: flex;
-      gap: 1rem;
-      transition: transform 0.5s ease-in-out;
+      gap: 0;
+      width: max-content;
     }
 
     .wa-reviews-slide {
-      flex: 0 0 100%;
+      flex: 0 0 min(960px, calc(100vw - 2rem));
+      margin-right: 1rem;
       display: flex;
       justify-content: center;
       position: relative;
@@ -122,7 +218,7 @@
 
     @media (min-width: 680px) {
       .wa-reviews-slide {
-        flex: 0 0 calc(50% - 0.5rem);
+        flex-basis: calc((min(960px, calc(100vw - 2rem)) - 1rem) / 2);
       }
     }
 
@@ -420,14 +516,6 @@
               loading="lazy" draggable="false" /></figure>
           </div>
         </div>
-        <div class="container ps-controls">
-
-          <button class="ps-arrow" id="psPrev" aria-label="Previous posters" type="button"><i
-              class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
-          <div class="ps-dots" id="psDots" role="tablist" aria-label="Poster slides"></div>
-          <button class="ps-arrow" id="psNext" aria-label="Next posters" type="button"><i
-              class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
-        </div>
       </section>
 
       <!-- 3. CHANNEL LOGOS MARQUEE (standalone - prefix: clm) -->
@@ -682,11 +770,10 @@
             <div class="wa-reviews-slide"><span class="wa-verified-badge">Verified Order ✓</span><img src="assets/images/reviews/5.jpg" alt="WhatsApp review screenshot recommending StreamMax IPTV" loading="lazy" /></div>
             <div class="wa-reviews-slide"><span class="wa-verified-badge">Verified Order ✓</span><img src="assets/images/reviews/6.jpg" alt="WhatsApp review screenshot from a StreamMax sports viewer" loading="lazy" /></div>
             <div class="wa-reviews-slide"><span class="wa-verified-badge">Verified Order ✓</span><img src="assets/images/reviews/7.jpg" alt="WhatsApp review screenshot about StreamMax instant activation" loading="lazy" /></div>
-            <div class="wa-reviews-slide"><span class="wa-verified-badge">Verified Order ✓</span><img src="assets/images/reviews/8.jpg" alt="WhatsApp review screenshot from a StreamMax IPTV family subscriber" loading="lazy" /></div>
+            <div class="wa-reviews-slide"><span class="wa-verified-badge">Verified Order ✓</span><img src="assets/images/reviews/8.jpeg" alt="WhatsApp review screenshot from a StreamMax IPTV family subscriber" loading="lazy" /></div>
             <div class="wa-reviews-slide"><span class="wa-verified-badge">Verified Order ✓</span><img src="assets/images/reviews/9.jpg" alt="WhatsApp review screenshot praising StreamMax channel lineup" loading="lazy" /></div>
             <div class="wa-reviews-slide"><span class="wa-verified-badge">Verified Order ✓</span><img src="assets/images/reviews/10.jpg" alt="WhatsApp review screenshot from a loyal StreamMax customer" loading="lazy" /></div>
           </div>
-          <div class="wa-reviews-dots" id="waReviewsDots" role="tablist" aria-label="WhatsApp review slides"></div>
         </div>
         <div class="container trust-metric-bar">
           <div class="trust-metric-item">
@@ -1006,82 +1093,6 @@
     </div>
   </div>
   <script src="assets/script.js"></script>
-  <script>
-    (function () {
-      var track = document.getElementById('waReviewsTrack');
-      var slider = document.getElementById('waReviewsSlider');
-      var dotsWrap = document.getElementById('waReviewsDots');
-      if (!track || !slider || !dotsWrap) return;
-
-      var slides = track.children;
-      var count = slides.length;
-      var index = 0;
-      var timer = null;
-      var INTERVAL = 1700;
-
-      for (var i = 0; i < count; i++) {
-        var dot = document.createElement('button');
-        dot.type = 'button';
-        dot.setAttribute('aria-label', 'Go to WhatsApp review ' + (i + 1));
-        dot.dataset.index = i;
-        dot.addEventListener('click', function () {
-          index = parseInt(this.dataset.index, 10);
-          update();
-          restart();
-        });
-        dotsWrap.appendChild(dot);
-      }
-      var dots = dotsWrap.children;
-
-      function perView() {
-        return window.innerWidth >= 680 ? 2 : 1;
-      }
-
-      function maxIndex() {
-        return Math.max(0, count - perView());
-      }
-
-      function update() {
-        if (index > maxIndex()) index = 0;
-        var slide = slides[0];
-        var gap = parseFloat(getComputedStyle(track).gap) || 0;
-        var offset = index * (slide.getBoundingClientRect().width + gap);
-        track.style.transform = 'translateX(-' + offset + 'px)';
-        for (var d = 0; d < dots.length; d++) {
-          dots[d].classList.toggle('wa-active', d === index);
-        }
-      }
-
-      function next() {
-        index = index >= maxIndex() ? 0 : index + 1;
-        update();
-      }
-
-      function start() {
-        timer = setInterval(next, INTERVAL);
-      }
-
-      function stop() {
-        if (timer) clearInterval(timer);
-        timer = null;
-      }
-
-      function restart() {
-        stop();
-        start();
-      }
-
-      slider.addEventListener('mouseenter', stop);
-      slider.addEventListener('mouseleave', start);
-      window.addEventListener('resize', function () {
-        index = Math.min(index, maxIndex());
-        update();
-      });
-
-      update();
-      start();
-    })();
-  </script>
 </body>
 
 </html>

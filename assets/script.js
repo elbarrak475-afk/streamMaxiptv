@@ -386,154 +386,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
   updateCountdown();
 });
-/* ==========================================================================
-   POSTER SHOWCASE SLIDER (standalone IIFE - prefix: ps)
-   Auto-play infinite loop + drag/swipe + dots + arrows
-   ========================================================================== */
+/* ==========================================================================\n+   POSTER SHOWCASE MARQUEE (standalone IIFE - prefix: ps)\n+   Continuous infinite loop with hover and visibility pause\n+   ========================================================================== */
 (function () {
   'use strict';
   var section = document.querySelector('.poster-slider-section');
   if (!section) return;
 
   var track = document.getElementById('psTrack');
-  var viewport = document.getElementById('psViewport');
-  var dotsWrap = document.getElementById('psDots');
-  var prevBtn = document.getElementById('psPrev');
-  var nextBtn = document.getElementById('psNext');
-  if (!track || !viewport) return;
+  if (!track) return;
 
   var originals = Array.prototype.slice.call(track.children);
-  var count = originals.length;
-  if (!count) return;
+  if (!originals.length) return;
 
-  // Clone the full set once so the loop is seamless.
-  originals.forEach(function (card) {
-    var clone = card.cloneNode(true);
+  // Keep two equal-width groups so the midpoint loop has no gap or snap.
+  var group = document.createElement('div');
+  group.className = 'ps-group';
+  originals.forEach(function (card) { group.appendChild(card); });
+  track.appendChild(group);
+  var clone = group.cloneNode(true);
+  clone.setAttribute('aria-hidden', 'true');
+  track.appendChild(clone);
+
+  // Pause while the page is hidden; CSS handles hover and reduced motion.
+  document.addEventListener('visibilitychange', function () {
+    track.style.animationPlayState = document.hidden ? 'paused' : '';
+  });
+})();
+
+/* ========================================================================
+   WHATSAPP REVIEW MARQUEE (standalone IIFE - prefix: wa-reviews)
+  Continuous infinite loop with individually duplicated review items.
+   ======================================================================== */
+(function () {
+  'use strict';
+  var track = document.getElementById('waReviewsTrack');
+  if (!track || !track.children.length) return;
+
+  var slides = Array.prototype.slice.call(track.children);
+  // Clone only the review items, preserving the same item sequence and spacing.
+  slides.forEach(function (slide) {
+    var clone = slide.cloneNode(true);
     clone.setAttribute('aria-hidden', 'true');
     track.appendChild(clone);
   });
 
-  var index = 0;
-  var TRANSITION_MS = 360;
-  var AUTOPLAY_MS = 1800;
-  var timer = null;
-  var isDragging = false;
-  var dragStartX = 0;
-  var dragStartTranslate = 0;
-  var pauseUntil = 0;
-
-  function gapPx() {
-    var g = window.getComputedStyle(track).columnGap || window.getComputedStyle(track).gap || '0px';
-    return parseFloat(g) || 0;
-  }
-  function stepPx() {
-    var card = track.children[0];
-    return card.getBoundingClientRect().width + gapPx();
-  }
-  function setTranslate(x, animate) {
-    track.classList.toggle('ps-animating', !!animate && !isDragging);
-    track.style.transform = 'translate3d(' + x + 'px, 0, 0)';
-  }
-  function positionFor(i) { return -i * stepPx(); }
-
-  function render() {
-    setTranslate(positionFor(index), true);
-    var dots = dotsWrap ? dotsWrap.children : [];
-    for (var d = 0; d < dots.length; d++) {
-      dots[d].classList.toggle('ps-active', d === index % count);
-      dots[d].setAttribute('aria-selected', d === index % count ? 'true' : 'false');
-    }
-  }
-
-  function goTo(i) {
-    index = i;
-    render();
-    // Just animated past the last original -> snap back invisibly.
-    if (index >= count) {
-      index = index % count;
-      setTimeout(function () { setTranslate(positionFor(index), false); }, TRANSITION_MS);
-    }
-    if (index < 0) {
-      index = count + (index % count);
-      setTimeout(function () { setTranslate(positionFor(index), false); }, TRANSITION_MS);
-    }
-  }
-
-  function next() { goTo(index + 1); }
-  function prev() { goTo(index - 1); }
-
-  function startAuto() { stopAuto(); timer = setInterval(next, AUTOPLAY_MS); }
-  function stopAuto() { if (timer) { clearInterval(timer); timer = null; } }
-  function scheduleResume() { pauseUntil = Date.now() + 6000; }
-
-  setInterval(function () {
-    if (timer && Date.now() < pauseUntil) return;
-    if (!timer && Date.now() >= pauseUntil && !document.hidden && !isDragging) {
-      if (!section.matches(':hover')) startAuto();
-    }
-  }, 800);
-
-  // Dots
-  if (dotsWrap) {
-    for (var i = 0; i < count; i++) {
-      (function (n) {
-        var dot = document.createElement('button');
-        dot.type = 'button';
-        dot.className = 'ps-dot';
-        dot.setAttribute('role', 'tab');
-        dot.setAttribute('aria-label', 'Go to slide ' + (n + 1));
-        dot.addEventListener('click', function () { goTo(n); scheduleResume(); });
-        dotsWrap.appendChild(dot);
-      })(i);
-    }
-  }
-
-  nextBtn && nextBtn.addEventListener('click', function () { next(); scheduleResume(); });
-  prevBtn && prevBtn.addEventListener('click', function () { prev(); scheduleResume(); });
-
-  // Pointer drag / touch swipe (works for mouse + touch via Pointer Events)
-  function onDown(e) {
-    isDragging = true;
-    dragStartX = e.clientX;
-    dragStartTranslate = -index * stepPx();
-    track.classList.add('ps-dragging');
-    stopAuto();
-    track.setPointerCapture && track.setPointerCapture(e.pointerId);
-  }
-  function onMove(e) {
-    if (!isDragging) return;
-    var delta = e.clientX - dragStartX;
-    setTranslate(dragStartTranslate + delta, false);
-  }
-  function onUp(e) {
-    if (!isDragging) return;
-    isDragging = false;
-    track.classList.remove('ps-dragging');
-    var delta = e.clientX - dragStartX;
-    var step = stepPx();
-    var moved = Math.round(delta / step);
-    if (moved === 0 && Math.abs(delta) > 40) moved = delta < 0 ? -1 : 1;
-    goTo(index - moved);
-    scheduleResume();
-  }
-
-  track.addEventListener('pointerdown', onDown);
-  track.addEventListener('pointermove', onMove);
-  track.addEventListener('pointerup', onUp);
-  track.addEventListener('pointercancel', onUp);
-  track.addEventListener('dragstart', function (e) { e.preventDefault(); });
-
-  // Pause while hovering with a mouse; resume on leave.
-  section.addEventListener('mouseenter', stopAuto);
-  section.addEventListener('mouseleave', function () { startAuto(); });
   document.addEventListener('visibilitychange', function () {
-    document.hidden ? stopAuto() : startAuto();
+    track.style.animationPlayState = document.hidden ? 'paused' : '';
   });
-
-  window.addEventListener('resize', function () {
-    setTranslate(positionFor(index % count), false);
-  });
-
-  render();
-  startAuto();
 })();
