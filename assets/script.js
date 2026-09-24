@@ -1,4 +1,4 @@
-﻿// StreamMax IPTV - Core Interactive Features
+// GETBEST IPTV 8K - Core Interactive Features
 document.addEventListener('DOMContentLoaded', () => {
   // Scroll progress indicator
   const scrollProgressFill = document.querySelector('.scroll-progress-fill');
@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     input.value = '';
-    showToast('Thank you! You are now subscribed to the StreamMax newsletter.', 'success');
+    showToast('Thank you! You are now subscribed to the GETBEST IPTV 8K newsletter.', 'success');
   });
 
   // Support Form Submission with In-Page Banner
