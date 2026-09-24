@@ -389,27 +389,29 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ==========================================================================\n+   POSTER SHOWCASE MARQUEE (standalone IIFE - prefix: ps)\n+   Continuous infinite loop with hover and visibility pause\n+   ========================================================================== */
 (function () {
   'use strict';
-  var section = document.querySelector('.poster-slider-section');
-  if (!section) return;
+  var sections = document.querySelectorAll('.poster-slider-section');
+  if (!sections.length) return;
 
-  var track = document.getElementById('psTrack');
-  if (!track) return;
+  sections.forEach(function (section) {
+    var track = section.querySelector('.ps-track');
+    if (!track || track.dataset.psReady === 'true') return;
 
-  var originals = Array.prototype.slice.call(track.children);
-  if (!originals.length) return;
+    var originals = Array.prototype.slice.call(track.children);
+    if (!originals.length) return;
 
-  // Keep two equal-width groups so the midpoint loop has no gap or snap.
-  var group = document.createElement('div');
-  group.className = 'ps-group';
-  originals.forEach(function (card) { group.appendChild(card); });
-  track.appendChild(group);
-  var clone = group.cloneNode(true);
-  clone.setAttribute('aria-hidden', 'true');
-  track.appendChild(clone);
+    var group = document.createElement('div');
+    group.className = 'ps-group';
+    originals.forEach(function (card) { group.appendChild(card); });
+    track.appendChild(group);
 
-  // Pause while the page is hidden; CSS handles hover and reduced motion.
-  document.addEventListener('visibilitychange', function () {
-    track.style.animationPlayState = document.hidden ? 'paused' : '';
+    var clone = group.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    track.appendChild(clone);
+    track.dataset.psReady = 'true';
+
+    document.addEventListener('visibilitychange', function () {
+      track.style.animationPlayState = document.hidden ? 'paused' : '';
+    });
   });
 })();
 
