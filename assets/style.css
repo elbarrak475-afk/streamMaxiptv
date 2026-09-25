@@ -7,7 +7,7 @@
 
 :root {
   color-scheme: dark;
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   color: #f1f5f9;
@@ -208,7 +208,6 @@ a {
   padding: 0;
   border: none;
   background: transparent;
-  font-family: 'Poppins', sans-serif;
   font-size: 1.35rem;
   letter-spacing: 0.04em;
   font-weight: 800;
@@ -414,7 +413,6 @@ h2,
 h3,
 h4 {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
   color: var(--text);
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -916,7 +914,6 @@ h4 {
 }
 
 .stat-value {
-  font-family: 'Montserrat', sans-serif;
   font-size: clamp(2.1rem, 2.8vw, 2.75rem);
   font-weight: 800;
   color: var(--text);
@@ -1025,7 +1022,6 @@ h4 {
 .football-hero h1 {
   max-width: 18ch;
   margin: 0 auto 1.35rem;
-  font-family: 'Poppins', sans-serif;
   font-size: 2.5rem;
   font-weight: 800;
   line-height: 1.12;
@@ -1814,7 +1810,6 @@ h4 {
 }
 
 .testimonial-meta strong {
-  font-family: 'Poppins', sans-serif;
   font-size: 0.95rem;
   color: var(--text);
 }
@@ -2059,7 +2054,6 @@ h4 {
 }
 
 .plan-price {
-  font-family: 'Montserrat', sans-serif;
   font-size: 2.15rem;
   font-weight: 800;
   line-height: 1;
@@ -2671,7 +2665,6 @@ h4 {
 
 .subpage-hero-preview__title {
   color: #ffffff;
-  font-family: 'Poppins', sans-serif;
   font-size: 1rem;
   font-weight: 700;
 }
@@ -2794,7 +2787,6 @@ h4 {
 .league-card span {
   position: relative;
   z-index: 2;
-  font-family: 'Poppins', sans-serif;
   font-size: 1.15rem;
   font-weight: 700;
   color: var(--text);
@@ -3776,7 +3768,6 @@ h4 {
 }
 
 .roi-val {
-  font-family: 'Montserrat', sans-serif;
   font-size: 2rem;
   font-weight: 800;
   color: var(--text);
@@ -4063,7 +4054,6 @@ h4 {
 }
 
 .ps-title {
-  font-family: 'Poppins', sans-serif;
   font-size: clamp(1.9rem, 3.4vw, 2.7rem);
   margin: 1rem 0 0.6rem;
   color: var(--text, #f8fafc);
@@ -4246,7 +4236,6 @@ h4 {
 }
 
 .clm-title {
-  font-family: 'Poppins', sans-serif;
   font-size: clamp(1.5rem, 2.6vw, 2.1rem);
   margin: 0.9rem 0 0;
   color: var(--text, #f8fafc);
@@ -4295,7 +4284,6 @@ h4 {
   gap: 0.6rem;
   padding: 0.85rem 1.4rem;
   border-radius: 14px;
-  font-family: 'Poppins', sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -4339,7 +4327,6 @@ h4 {
   gap: 0.55rem;
   padding: 0.85rem 1.7rem;
   border-radius: 14px;
-  font-family: 'Poppins', sans-serif;
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.02em;
