@@ -286,25 +286,25 @@ document.addEventListener('DOMContentLoaded', () => {
     '3m': {
       period: '/ 3 months',
       plans: {
-        starter: { price: '24.99', subtext: '$8.33 / month • Billed every 3 months', link: 'support.html?plan=starter&duration=3m' },
-        premium: { price: '44.99', subtext: '$14.99 / month • Billed every 3 months', link: 'support.html?plan=premium&duration=3m' },
-        elite: { price: '64.99', subtext: '$21.66 / month • Billed every 3 months', link: 'support.html?plan=elite&duration=3m' }
+        starter: { price: '24.99', subtext: '$8.33 / month • Billed every 3 months', link: 'support?plan=starter&duration=3m' },
+        premium: { price: '44.99', subtext: '$14.99 / month • Billed every 3 months', link: 'support?plan=premium&duration=3m' },
+        elite: { price: '64.99', subtext: '$21.66 / month • Billed every 3 months', link: 'support?plan=elite&duration=3m' }
       }
     },
     '6m': {
       period: '/ 6 months',
       plans: {
-        starter: { price: '44.99', subtext: '$7.50 / month • Save 15% (Billed $44.99)', link: 'support.html?plan=starter&duration=6m' },
-        premium: { price: '79.99', subtext: '$13.33 / month • Save 15% (Billed $79.99)', link: 'support.html?plan=premium&duration=6m' },
-        elite: { price: '119.99', subtext: '$19.99 / month • Save 15% (Billed $119.99)', link: 'support.html?plan=elite&duration=6m' }
+        starter: { price: '44.99', subtext: '$7.50 / month • Save 15% (Billed $44.99)', link: 'support?plan=starter&duration=6m' },
+        premium: { price: '79.99', subtext: '$13.33 / month • Save 15% (Billed $79.99)', link: 'support?plan=premium&duration=6m' },
+        elite: { price: '119.99', subtext: '$19.99 / month • Save 15% (Billed $119.99)', link: 'support?plan=elite&duration=6m' }
       }
     },
     '12m': {
       period: '/ 12 months',
       plans: {
-        starter: { price: '69.99', subtext: '$5.83 / month • Save 40% (Billed $69.99/yr)', link: 'support.html?plan=starter&duration=12m' },
-        premium: { price: '129.99', subtext: '$10.83 / month • Save 40% (Billed $129.99/yr)', link: 'support.html?plan=premium&duration=12m' },
-        elite: { price: '199.99', subtext: '$16.66 / month • Save 35% (Billed $199.99/yr)', link: 'support.html?plan=elite&duration=12m' }
+        starter: { price: '69.99', subtext: '$5.83 / month • Save 40% (Billed $69.99/yr)', link: 'support?plan=starter&duration=12m' },
+        premium: { price: '129.99', subtext: '$10.83 / month • Save 40% (Billed $129.99/yr)', link: 'support?plan=premium&duration=12m' },
+        elite: { price: '199.99', subtext: '$16.66 / month • Save 35% (Billed $199.99/yr)', link: 'support?plan=elite&duration=12m' }
       }
     }
   };
