@@ -210,10 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const nameInput = supportForm.querySelector('#name');
     const name = nameInput?.value.trim() || 'Valued Subscriber';
-    const emailInput = supportForm.querySelector('#email');
-    const messageInput = supportForm.querySelector('#message');
     const submitButton = supportForm.querySelector('button[type="submit"]');
-
     submitButton?.setAttribute('disabled', 'true');
 
     try {
@@ -222,8 +219,11 @@ document.addEventListener('DOMContentLoaded', () => {
         headers: { Accept: 'application/json' },
         body: new FormData(supportForm),
       });
+      const result = await response.json();
 
-      if (!response.ok) throw new Error('Delivery failed');
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Delivery failed');
+      }
 
       supportForm.reset();
 
@@ -242,10 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       showToast('Support request submitted successfully!', 'success');
     } catch (error) {
-      const mailBody = encodeURIComponent(
-        `Name: ${name}\nEmail: ${emailInput?.value.trim() || ''}\n\n${messageInput?.value.trim() || ''}`
-      );
-      const mailtoLink = `mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent('Support Ticket - GETBEST IPTV 8K')}&body=${mailBody}`;
+      const mailtoLink = `mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent('Support Ticket - GETBEST IPTV 8K')}`;
 
       if (supportFormStatus) {
         supportFormStatus.innerHTML = `
@@ -253,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <i class="fa-solid fa-circle-exclamation alert-box__icon"></i>
             <div class="alert-box__content">
               <strong>We couldn't submit your request automatically.</strong>
-              <p>Please <a href="${mailtoLink}">click here to email us directly</a> at ${SUPPORT_EMAIL}.</p>
+              <p>Please try again, or <a href="${mailtoLink}">click here to email us directly</a> at ${SUPPORT_EMAIL}.</p>
             </div>
           </div>
         `;
