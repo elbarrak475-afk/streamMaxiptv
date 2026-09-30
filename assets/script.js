@@ -193,7 +193,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const supportForm = document.getElementById('support-form');
   const supportFormStatus = document.getElementById('support-form-status');
 
-  supportForm?.addEventListener('submit', (event) => {
+  const SUPPORT_EMAIL = 'getbestiptv8k.support.com@gmail.com';
+
+  supportForm?.addEventListener('submit', async (event) => {
     event.preventDefault();
     const requiredFields = supportForm.querySelectorAll('[required]');
     let valid = true;
@@ -208,22 +210,60 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const nameInput = supportForm.querySelector('#name');
     const name = nameInput?.value.trim() || 'Valued Subscriber';
-    supportForm.reset();
+    const emailInput = supportForm.querySelector('#email');
+    const messageInput = supportForm.querySelector('#message');
+    const submitButton = supportForm.querySelector('button[type="submit"]');
 
-    if (supportFormStatus) {
-      supportFormStatus.innerHTML = `
-        <div class="alert-box alert-box--success">
-          <i class="fa-solid fa-circle-check alert-box__icon"></i>
-          <div class="alert-box__content">
-            <strong>Request Submitted Successfully!</strong>
-            <p>Thank you, ${name}. Our technical team has received your ticket and will respond via email within 15 minutes.</p>
+    submitButton?.setAttribute('disabled', 'true');
+
+    try {
+      const response = await fetch(supportForm.action, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(supportForm),
+      });
+
+      if (!response.ok) throw new Error('Delivery failed');
+
+      supportForm.reset();
+
+      if (supportFormStatus) {
+        supportFormStatus.innerHTML = `
+          <div class="alert-box alert-box--success">
+            <i class="fa-solid fa-circle-check alert-box__icon"></i>
+            <div class="alert-box__content">
+              <strong>Request Submitted Successfully!</strong>
+              <p>Thank you, ${name}. Our technical team has received your ticket at ${SUPPORT_EMAIL} and will respond via email within 15 minutes.</p>
+            </div>
           </div>
-        </div>
-      `;
-      supportFormStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
+        `;
+        supportFormStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
 
-    showToast('Support request submitted successfully!', 'success');
+      showToast('Support request submitted successfully!', 'success');
+    } catch (error) {
+      const mailBody = encodeURIComponent(
+        `Name: ${name}\nEmail: ${emailInput?.value.trim() || ''}\n\n${messageInput?.value.trim() || ''}`
+      );
+      const mailtoLink = `mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent('Support Ticket - GETBEST IPTV 8K')}&body=${mailBody}`;
+
+      if (supportFormStatus) {
+        supportFormStatus.innerHTML = `
+          <div class="alert-box alert-box--error">
+            <i class="fa-solid fa-circle-exclamation alert-box__icon"></i>
+            <div class="alert-box__content">
+              <strong>We couldn't submit your request automatically.</strong>
+              <p>Please <a href="${mailtoLink}">click here to email us directly</a> at ${SUPPORT_EMAIL}.</p>
+            </div>
+          </div>
+        `;
+        supportFormStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      showToast('Could not submit automatically. Please use the email link provided.', 'error');
+    } finally {
+      submitButton?.removeAttribute('disabled');
+    }
   });
 
   // Animated Counters

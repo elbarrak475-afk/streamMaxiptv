@@ -3101,6 +3101,20 @@ h4 {
   border: 1px solid var(--border-accent);
 }
 
+.alert-box--error {
+  background: rgba(255, 87, 87, 0.08);
+  border-color: rgba(255, 87, 87, 0.4);
+}
+
+.alert-box--error .alert-box__icon {
+  color: #ff5757;
+}
+
+.alert-box__content a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
 .alert-box__icon {
   font-size: 1.4rem;
   color: var(--accent);
