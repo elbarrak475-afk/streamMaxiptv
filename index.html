@@ -133,7 +133,10 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="preload" href="assets/stadium-mobile.mp4" as="video" type="video/mp4" media="(max-width: 767px)" fetchpriority="high" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" /></noscript>
   <link rel="stylesheet" href="assets/style.css" />
   <style>
     .wa-reviews-slider {
@@ -255,8 +258,15 @@
     }
 
     @keyframes waWaveGlow {
-      0%, 100% { opacity: 0.25; filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.4)); }
-      50%      { opacity: 0.6;  filter: drop-shadow(0 0 18px rgba(16, 185, 129, 0.8)); }
+      0%, 100% { opacity: 0.25; }
+      50%      { opacity: 0.6; }
+    }
+
+    @media (min-width: 768px) {
+      @keyframes waWaveGlow {
+        0%, 100% { opacity: 0.25; filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.4)); }
+        50%      { opacity: 0.6;  filter: drop-shadow(0 0 18px rgba(16, 185, 129, 0.8)); }
+      }
     }
 
     /* Keep section content above the waves */
@@ -316,10 +326,10 @@
       <!-- 1. HERO SECTION -->
       <section class="hero" id="home">
         <div class="hero-background" aria-hidden="true">
-          <video autoplay muted loop playsinline class="background-video desktop-video">
+          <video autoplay muted loop playsinline preload="none" class="background-video desktop-video">
             <source src="assets/stadium-desktop.mp4" type="video/mp4">
           </video>
-          <video autoplay muted loop playsinline class="background-video mobile-video">
+          <video autoplay muted loop playsinline preload="auto" fetchpriority="high" class="background-video mobile-video">
             <source src="assets/stadium-mobile.mp4" type="video/mp4">
           </video>
         </div>
@@ -1115,7 +1125,7 @@
       <a class="sticky-cta sticky-cta--telegram" href="https://t.me/Deal_Finder_DG" target="_blank" rel="noopener noreferrer" aria-label="Message us on Telegram"><i class="fa-brands fa-telegram" aria-hidden="true"></i><span>Telegram</span></a>
     </div>
   </div>
-  <script src="assets/script.js"></script>
+  <script src="assets/script.js" defer></script>
 </body>
 
 </html>
