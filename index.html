@@ -134,7 +134,7 @@
   }
   </script>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-  <link rel="preload" href="assets/stadium-mobile.mp4" as="video" type="video/mp4" media="(max-width: 767px)" fetchpriority="high" />
+  <link rel="preload" href="assets/hero-poster-mobile.webp" as="image" type="image/webp" media="(max-width: 767px)" fetchpriority="high" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" /></noscript>
   <link rel="stylesheet" href="assets/style.css" />
@@ -329,7 +329,7 @@
           <video autoplay muted loop playsinline preload="none" class="background-video desktop-video">
             <source src="assets/stadium-desktop.mp4" type="video/mp4">
           </video>
-          <video autoplay muted loop playsinline preload="auto" fetchpriority="high" class="background-video mobile-video">
+          <video autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster-mobile.webp" class="background-video mobile-video">
             <source src="assets/stadium-mobile.mp4" type="video/mp4">
           </video>
         </div>
