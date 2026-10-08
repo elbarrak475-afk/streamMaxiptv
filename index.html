@@ -134,7 +134,8 @@
   }
   </script>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-  <link rel="preload" href="assets/hero-poster-mobile.webp" as="image" type="image/webp" media="(max-width: 767px)" fetchpriority="high" />
+  <link rel="preload" fetchpriority="high" as="image" href="assets/hero-poster-mobile.webp" type="image/webp" media="(max-width: 767px)" />
+  <link rel="preload" fetchpriority="high" as="image" href="assets/hero-poster-desktop.webp" type="image/webp" media="(min-width: 768px)" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" /></noscript>
   <link rel="stylesheet" href="assets/style.css" />
@@ -343,7 +344,7 @@
       <!-- 1. HERO SECTION -->
       <section class="hero" id="home">
         <div class="hero-background" aria-hidden="true">
-          <video autoplay muted loop playsinline preload="none" class="background-video desktop-video">
+          <video autoplay muted loop playsinline preload="none" poster="assets/hero-poster-desktop.webp" class="background-video desktop-video">
             <source src="assets/stadium-desktop.mp4" type="video/mp4">
           </video>
           <video autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster-mobile.webp" class="background-video mobile-video">
