@@ -599,6 +599,16 @@ h4 {
   pointer-events: none;
 }
 
+.hero-background img.hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
 .desktop-video {
   display: none;
 }
